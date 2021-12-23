@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 //creates the schema for the cards in the UI with propery title and description
 const cardSchema = new mongoose.Schema({
   title: {
@@ -17,12 +16,14 @@ const cardSchema = new mongoose.Schema({
       'A description must have more then or equal to 100 characters.',
     ],
   },
+  updateCount: {
+    type: Number,
+    default: 0,
+  },
 });
-
 
 //make model using cardSchema
 const Card = mongoose.model('Card', cardSchema);
 
-
-//exports the Card Model 
+//exports the Card Model
 module.exports = Card;
