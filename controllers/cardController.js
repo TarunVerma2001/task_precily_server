@@ -43,10 +43,18 @@ exports.updateCard = async (req, res, next) => {
       new: true,
       runValidators: true,
     });
-    const { updateCount } = req.body;
+    let { updateCount } = card;
+    console.log(updateCount);
     if (card) {
       updateCount++;
-      await Card.findByIdAndUpdate(req.params.id, { updateCount: updateCount });
+      await Card.findByIdAndUpdate(
+        req.params.id,
+        { updateCount: updateCount },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
     }
 
     // if no card fond with the provided id it throw error
