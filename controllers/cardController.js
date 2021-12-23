@@ -45,6 +45,15 @@ exports.updateCard = async (req, res, next) => {
     });
     let { updateCount } = card;
     console.log(updateCount);
+
+    //if data is updated
+    //we increment the value of updateCount by 1
+    
+    //now tog get the no. of update and add on the collection
+    //in the front end part we calculate the length of data recieved by the array length
+    //and we traverse in the array we got in the frontend and increment the variable of update count
+    //so the addData count and update data count give us the total count of the add and updated operation
+    //performed on the collection
     if (card) {
       updateCount++;
       await Card.findByIdAndUpdate(
